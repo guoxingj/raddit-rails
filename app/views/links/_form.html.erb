@@ -1,4 +1,4 @@
-<%= form_with(model: link, local: true) do |form| %>
+<%= form_with(model: link, local: true) do |f| %>
   <% if link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :link_title %>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url, id: :link_url %>
+  <div class="form-group">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
